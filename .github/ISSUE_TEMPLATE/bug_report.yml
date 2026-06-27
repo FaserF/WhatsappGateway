@@ -1,0 +1,63 @@
+name: 🐛 Bug Report
+description: Report a bug in the WhatsApp Gateway backend application
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Please provide a clear and concise description of the issue.
+  - type: textarea
+    id: description
+    attributes:
+      label: Description of the Bug
+      placeholder: Tell us what is happening...
+    validations:
+      required: true
+  - type: input
+    id: gateway_version
+    attributes:
+      label: WhatsApp Gateway Version
+      placeholder: e.g., 1.6.3 or main branch
+    validations:
+      required: true
+  - type: dropdown
+    id: environment
+    attributes:
+      label: Environment Setup
+      options:
+        - Standalone Docker Compose
+        - Standalone Docker CLI
+        - Home Assistant Addon (Stable)
+        - Home Assistant Addon (Edge)
+        - Local Development (Node.js)
+    validations:
+      required: true
+  - type: input
+    id: node_version
+    attributes:
+      label: Node.js / Docker Base Version
+      placeholder: e.g., Node 20, node:20-alpine
+    validations:
+      required: false
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to Reproduce
+      placeholder: |
+        1. Start the container with configuration...
+        2. Hit endpoint /send...
+        3. See error...
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Application / Docker Logs
+      placeholder: Paste related debug logs here. Please sanitize any API tokens or phone numbers!
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Context
+      placeholder: Any other relevant information or screenshots.

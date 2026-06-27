@@ -1,0 +1,34 @@
+services:
+  whatsapp-gateway:
+    image: ghcr.io/faserf/whatsappgateway:latest
+    container_name: whatsapp-gateway
+    restart: unless-stopped
+    ports:
+      - "8066:8066"
+    volumes:
+      - ./data:/data
+      - ./media:/media
+    environment:
+      - PORT=8066
+      - DATA_DIR=/data
+      - MEDIA_FOLDER=/media
+      - LOG_LEVEL=info
+      # - API_TOKEN=your_secure_token_here
+      # - ADMIN_NUMBERS=49123456789
+      # - WEBHOOK_ENABLED=false
+      # - WEBHOOK_URL=http://your-webhook-target/endpoint
+      # - WEBHOOK_TOKEN=your_webhook_token
+      # - UI_AUTH_ENABLED=false
+      # - UI_AUTH_PASSWORD=your_dashboard_password
+      # - MARK_ONLINE=false
+      # - RESET_SESSION=false
+      # - WELCOME_MESSAGE_ENABLED=true
+      # - ADMIN_NOTIFICATIONS_ENABLED=true
+      # - SEND_MESSAGE_TIMEOUT=25000
+      # - KEEP_ALIVE_INTERVAL=30000
+      # - MASK_SENSITIVE_DATA=false
+      # - MESSAGE_SEND_INTERVAL=1000
+      # - GROUP_FETCH_INTERVAL=300000
+      # - GROUP_FETCH_COOLDOWN_ON_ERROR=60000
+      # - GROUP_FETCH_COOLDOWN_ON_RATE_LIMIT=900000
+      # - NODE_TLS_REJECT_UNAUTHORIZED=1
